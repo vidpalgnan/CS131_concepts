@@ -10,19 +10,42 @@ using namespace std;
 
 void whileandif() {
 
+    /*
+     
     // -------------------------
     // Loop Basics (Counting)
     // -------------------------
-    cout << "Counting from 1 to 10\n";
+    cout << "Counting from 1 to 5\n";
 
-    int i = 1;
-    while (i <= 10) {
-        cout << i << " ";
-        i++;
+    int count = 1;
+
+    while (count < 5) {
+       cout << count << endl;
+       count++;  // changes the state so the loop can end
     }
+
     cout << "\n\n";
+     
+    
+     // -------------------------
+     // Accumulator simple (Sum)
+     // -------------------------
+     
+    int total = 0;
 
+//    total = total + 5;
+//    total = total + 3;
+//    total = total + 2;
+    // total = 10
 
+    total += 5;
+    total += 3;
+    total += 2;
+
+    cout << total << endl;   // prints 10
+     
+
+    
     // -------------------------
     // Accumulator Pattern (Sum)
     // -------------------------
@@ -31,7 +54,7 @@ void whileandif() {
     int sum = 0;
     int value;
     int count = 0;
-
+    // count 0,1,2,3,4
     while (count < 5) {
         cout << "Enter an integer: ";
         cin >> value;
@@ -41,6 +64,24 @@ void whileandif() {
     }
 
     cout << "Sum: " << sum << "\n\n";
+
+     
+    int a = 30;
+    int b = 400;
+    int c = 500;
+    
+    int maxVal = a;
+
+    if (b > maxVal) {
+        maxVal = b;
+    }
+    
+    if (c > maxVal) {
+        maxVal = c;
+    }
+
+    cout << maxVal << endl;
+
 
 
     // -------------------------
@@ -67,8 +108,11 @@ void whileandif() {
 
     cout << "Positive values: " << positiveCount << "\n";
     cout << "Sum: " << sum << "\n\n";
+*/
 
-
+    
+    int value;
+    int count;
     // -------------------------
     // Finding max
     // -------------------------
@@ -95,7 +139,7 @@ void whileandif() {
 
     cout << "Maximum value: " << maxValue << "\n\n";
 
-    
+    /*
     // -------------------------
     // All patterns together
     // -------------------------
@@ -138,4 +182,6 @@ void whileandif() {
     cout << "positives(count): " << positiveCount << "\n";
     cout << "sum: " << sum << "\n";
     cout << "max: " << maxValue << "\n";
+    
+    */
 }
