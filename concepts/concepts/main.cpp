@@ -10,11 +10,13 @@
 #include "stream_manipulators.h"
 
 void whileandif();
+void for_random();
+void scratch();
+void singleforloop();
 
 using namespace std;
 int main(int argc, const char * argv[]) {
-    whileandif();
-    // all_about_floatingpoint();
-    // stream_manipulators();
+    singleforloop();
+
     return EXIT_SUCCESS;
 }

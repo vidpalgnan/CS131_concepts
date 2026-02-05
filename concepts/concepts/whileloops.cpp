@@ -108,7 +108,7 @@ void whileandif() {
 
     cout << "Positive values: " << positiveCount << "\n";
     cout << "Sum: " << sum << "\n\n";
-*/
+
 
     
     int value;
@@ -139,49 +139,53 @@ void whileandif() {
 
     cout << "Maximum value: " << maxValue << "\n\n";
 
-    /*
+    */
+    
     // -------------------------
     // All patterns together
     // -------------------------
+
+    int pos_count = 0;
+    int sum = 0;
+    int max_value;
+    int count = 0;
+    int value;
+    
     cout << "Count, Sum, and Maximum\n";
     cout << "Enter 5 integers:\n";
 
-    // int maxValue;
-
     // Step A — read first value
+
     cin >> value;
     sum = value;
-    maxValue = value;
-    positiveCount = 0;
+    max_value = value;
+    pos_count = 0;
 
     if (value > 0) {
-        positiveCount = 1;
-        // or positiveCount++;
+        pos_count = 1;
     }
-    
+
     // Step B — remaining 4 values
+
     count = 1;
     while (count < 5) {
         cin >> value;
-
         sum += value;
-
         if (value > 0) {
-            positiveCount++;
+            pos_count++;
         }
-
-        if (value > maxValue) {
-            maxValue = value;
+        
+        if (value > max_value) {
+            max_value = value;
         }
-
         count++;
     }
 
     // Step C — print results
     cout << "\nResults:\n";
-    cout << "positives(count): " << positiveCount << "\n";
+    cout << "positives: " << pos_count << "\n";
     cout << "sum: " << sum << "\n";
-    cout << "max: " << maxValue << "\n";
+    cout << "max: " << max_value << "\n";
     
-    */
+
 }
