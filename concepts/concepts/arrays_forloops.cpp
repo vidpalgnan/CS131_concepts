@@ -8,6 +8,13 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#if defined(_WIN32)
+    #include <windows.h>
+#elif defined(__unix__) || defined(__APPLE__)
+    #include <unistd.h>
+#else
+    #error "Unsupported platform"
+#endif
 
 using namespace std;
 
@@ -45,6 +52,51 @@ void singleforloop()
     cout << "No, Exited loop, PLEASE NOTE i is now: " << i << endl;
 
 }
+
+void whileandfor()
+{
+    srand(static_cast<unsigned>(time(nullptr))); // seed once
+    
+    const int ITERATIONS = 20;
+    const int WAIT_TIME_MILLISECS = 2000;
+
+    bool got = false;
+    // polling for some state change
+    for (int i = 0; i < ITERATIONS; i++) {
+        cout << "Checking whether the message recieved" << endl;
+        int r = std::rand() % 100;       // 0..99
+        bool arrived = (r < 30);           // ~30% chance of true
+        
+        if (!arrived) {
+            cout << "Not yet, we will wait for sometime and check again" << endl;
+
+            #if defined(_WIN32)
+                        Sleep(WAIT_TIME_MILLISECS);
+            #elif defined(__unix__) || defined(__APPLE__)
+                        sleep(WAIT_TIME_MILLISECS/1000);
+            #else
+            #error "Unsupported platform"
+            #endif
+        }
+        else {
+            cout << "Got it!" << endl;
+            got = true;
+            break;
+        }
+    }
+    
+    if (got) {
+        cout << "we exited and got!" << endl;
+    }
+    else {
+        cout << "we exited, but we did not get!" << endl;
+    }
+    
+    // polling for some state change using while
+    // same thing with while
+    // which is better? 
+}
+
 
 void array_random()
 {

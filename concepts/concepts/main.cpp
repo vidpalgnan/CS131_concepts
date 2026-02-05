@@ -13,10 +13,11 @@ void whileandif();
 void for_random();
 void scratch();
 void singleforloop();
+void whileandfor();
 
 using namespace std;
 int main(int argc, const char * argv[]) {
-    singleforloop();
+    whileandfor();
 
     return EXIT_SUCCESS;
 }
