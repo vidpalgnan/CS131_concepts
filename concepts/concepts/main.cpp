@@ -13,11 +13,20 @@ void whileandif();
 void for_random();
 void scratch();
 void singleforloop();
+void array_random();
 void whileandfor();
+void fibbonocci();
+void array_pointers();
+void for_withuserinput();
+int read_file_formatted();
+int read_file_raw();
+int read_file_formatted_simple();
 
 using namespace std;
 int main(int argc, const char * argv[]) {
-    whileandfor();
-
+//    read_file_formatted_simple();
+//    read_file_formatted();
+    read_file_raw();
+    
     return EXIT_SUCCESS;
 }
