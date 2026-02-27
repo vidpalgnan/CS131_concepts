@@ -21,12 +21,20 @@ void for_withuserinput();
 int read_file_formatted();
 int read_file_raw();
 int read_file_formatted_simple();
+int compare(int a, int b, int c);
+void a_huge_array();
+void cause_overflow(int a);
+void c_string_stack_buffer_overflow();
+void c_string_heap_no_null();
+void memory_leak();
 
 using namespace std;
 int main(int argc, const char * argv[]) {
-//    read_file_formatted_simple();
-//    read_file_formatted();
-    read_file_raw();
-    
+    // a_huge_array();
+    // cause_overflow(1);
+    // c_string_stack_buffer_overflow();
+    // c_string_heap_no_null();
+    // memory_leak();
+    cout << "Done" << endl;
     return EXIT_SUCCESS;
 }
