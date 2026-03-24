@@ -8,24 +8,61 @@
 #include <iostream>
 using namespace std;
 
+
+
 void c_string_stack_buffer_overflow()
 {
-    char word[6] = "Hello";
-
-    for (int i = 0; i < 6; i++) {
-        cout << (int)word[i] << " ";
-    }
-    
+//    char word[6] = "Hello";
+//
+//    for (int i = 0; i < 6; i++) {
+//        cout << (int)word[i] << " ";
+//    }
+//    
     // char name[5] = "Hello";   // ERROR: needs 6, has only 5
     
+    // C++20 will not have problem, but older systems will overflow buffer.
     char name[10];
     cout << "Enter your name: ";
     cin >> name;
     cout << "You entered: " << name << endl;
-    cout << (int)name[9];
+    cout << "Null Characters Automatically inserted at postition 9: " << (int)name[9] << endl;
+    
     string leftover;
     cin >> leftover;
     cout << "Leftover in buffer: " << leftover;
+    
+    char name_safe[10];
+    // A frequent issue arises when mixing cin >> (which is used for single words or numbers) with getline(). The >> operator leaves the trailing newline character (\n) in the input buffer, which the subsequent getline() immediately reads as an "empty" line, causing it to skip the input prompt.
+    // Clear the newline character left in the buffer by cin >> leftover
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Use cin.ignore()
+
+    // safe in all systems to limit reading the number characters that will fit.
+    cout << "Enter your name, no matter how long: ";
+
+    cin.getline(name_safe, 10);
+    cout << "You entered: " << name_safe << endl;
+    
+    string leftover_safe;
+    cin >> leftover_safe;
+    cout << "Leftover in buffer: " << leftover;
+}
+
+
+void c_string_stack_no_null()
+{
+    char str[5];
+    
+
+    // file the adjacent memory with some values, forgot to clear
+    for (int i = 2; i < 10; i++) {
+        str[i] = 'X';
+    }
+    
+    // The actual intended word is "Hi"
+    str[0] = 'H';
+    str[1] = 'i';
+    
+    cout << str;
 }
 
 void c_string_heap_no_null() {

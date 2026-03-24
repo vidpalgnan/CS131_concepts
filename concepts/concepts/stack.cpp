@@ -43,13 +43,13 @@ void a_huge_array() {
     cout << "Enter array size (try something large): ";
     cin >> n;
 
-    print_memory_required(n, sizeof(double));
+    print_memory_required(n, sizeof(int));
     print_stack_limit();
 
     cout << "Attempting stack allocation...\n";
 
     // NOTE: This is a VLA extension (not standard C++) on some compilers:
-    double data[n];
+    int data[n];
 
     data[0] = 2.0;
     cout << "Allocated! data[0] = " << data[0] << "\n";
